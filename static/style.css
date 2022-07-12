@@ -1,0 +1,9 @@
+h1 {
+	text-align:center;
+}
+
+.body_class {
+	padding-left:100px;
+	padding-right:100px;
+	text-align:left;
+}
