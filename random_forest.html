@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Random Forest</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Dewi - v4.7.0
+  * Template URL: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">Electric Zombies</a></h1>
+
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#datacleansing">DataCleansing</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">EDA</a></li>
+          <li><a class="nav-link scrollto " href="#timeline">ML Models</a></li>
+          <li><a class="nav-link scrollto" href="#predict">Predictions</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Random Forest</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Random Forest</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="https://www.tibco.com/sites/tibco/files/media_entity/2021-05/random-forest-diagram.svg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="data:image/png;base64,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" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="https://mail.google.com/mail/u/1?ui=2&ik=a8694d4ed9&attid=0.5&permmsgid=msg-a:r3161485675543136383&view=att&disp=safe&realattid=f_l5infau64" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://mail.google.com/mail/u/1?ui=2&ik=a8694d4ed9&attid=0.3&permmsgid=msg-a:r3161485675543136383&view=att&disp=safe&realattid=f_l5in86tm2" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Random Forest</h3>
+              <ul>
+                <li><strong>Supervised Machine Learning Algorithm</strong></li>
+                <li><strong>Precision</strong>: 0.1</li>
+                <li><strong>Recall</strong>: 0.81</li>
+                <li><strong>F1 Score</strong>: 0.19<a href="#"></a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>This is an example of portfolio detail</h2>
+              <p>
+               On a Confusion Matrix, the top left is the number of true negatives, the top right is the number of false positives, the bottom left is the number of false negative, and the bottom right is the number of true positives.From the Random Forest, there are 427 false positives, 12 false negatives, 789 true negatives, and 50 true positives. Neural Networks has an 66% accuracy.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>AI Camp</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
